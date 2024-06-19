@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GlobalService } from '@app/services/global.service';
 import { virtualRouter } from '@app/services/virtualRouter.service';
@@ -11,7 +11,7 @@ import { PhotoGalleryModule } from '@twogate/ngx-photo-gallery';
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.css'
 })
-export class GalleryComponent {
+export class GalleryComponent implements AfterViewInit {
   images = [
     {
       src: 'assets/img1-big.jpg',
@@ -29,5 +29,7 @@ export class GalleryComponent {
     public global: GlobalService,
     public virtualRouter: virtualRouter
   ){}
-
+  ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
+  }
 }
