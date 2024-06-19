@@ -1,9 +1,4 @@
 import {
-  ApolloClient,
-  NetworkStatus,
-  gql
-} from "./chunk-BPP63SUK.js";
-import {
   Inject,
   Injectable,
   InjectionToken,
@@ -28,6 +23,11 @@ import {
   observeOn,
   startWith
 } from "./chunk-FTNLKMS3.js";
+import {
+  ApolloClient,
+  NetworkStatus,
+  gql
+} from "./chunk-BPP63SUK.js";
 import "./chunk-J2SOPSV6.js";
 import {
   __spreadProps,
