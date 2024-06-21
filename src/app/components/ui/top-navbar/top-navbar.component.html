@@ -76,17 +76,30 @@
                         </div>
                     </div>
                     <div class="header-right d-flex justify-content-end align-items-center">
-                       <div class="icon-items">
+                       <!-- <div class="icon-items">
                             <div class="icon">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div class="content">
                                 <p>Requesting A Call:</p>
                                 <h4><a href="tel:6295550129">(919) 885-5401</a></h4>
+                                
                             </div>
-                       </div>
+                       </div> -->
                         
-                        <a  class="search-trigger search-icon"><i class="fal fa-phone-alt"></i></a>
+                       <a class="search-trigger search-icon">
+                        <button class="fab" (click)="toggleMenu($event)">
+                            <i class="fal fa-phone-alt"></i>
+                            <h4 class="phone-number">919 885-5401</h4> 
+                        </button>
+                        <div class="fab-menu" [class.show]="menuOpen">
+                            <button (click)="sendSMS()">Send SMS</button>
+                            <button (click)="makeCall()">Make Call</button>
+                        </div>
+                    </a>
+                    
+                    
+                       
                        
                         <div class="header__hamburger d-xl-block my-auto">
                             <div class="sidebar__toggle">

@@ -1,4 +1,9 @@
 import {
+  ApolloLink,
+  Observable as Observable2,
+  print
+} from "./chunk-BPP63SUK.js";
+import {
   HttpClient,
   HttpHeaders
 } from "./chunk-RUE3ZS3O.js";
@@ -14,11 +19,6 @@ import "./chunk-I74UQOMN.js";
 import {
   Observable
 } from "./chunk-FTNLKMS3.js";
-import {
-  ApolloLink,
-  Observable as Observable2,
-  print
-} from "./chunk-BPP63SUK.js";
 import {
   __assign,
   __extends

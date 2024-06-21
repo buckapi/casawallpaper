@@ -56,13 +56,15 @@ export class AppComponent {
   title = 'Vendricom';
   layoutStyle: string = "default";
   deviceInfo: any = null
+  phoneNumber: string = '9198855401';
+  menuOpen: boolean = false;
   constructor(
     private deviceService: DeviceDetectorService,
     public script: ScriptService,
     public virtualRouter: virtualRouter,
     public global: GlobalService
     ) {
-
+    
 
     this.script.load(
       'bundle',
@@ -87,6 +89,18 @@ export class AppComponent {
       this.epicFunction();
       // this.global.isLogin();
 
+    }
+
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    }
+  
+    sendSMS() {
+      window.open(`sms:${this.phoneNumber}`, '_self');
+    }
+  
+    makeCall() {
+      window.open(`tel:${this.phoneNumber}`, '_self');
     }
     ngOnInit(): void {
       this.global.getConfig().subscribe(

@@ -21,8 +21,19 @@
                             </div>
                             <div class="content">
                                 <p>Call Us Now</p>
-                                <h4><a href="tel:9198855401">(919) 885-5401</a></h4>
+                                <h4>
+                                    <button class="fab" (click)="toggleMenu($event)">
+                                        
+                                        <span class="phone-number">(919) 885-5401</span>
+                                    </button>
+                                   
+                                </h4>
+                                <div class="fab-menu" [class.show]="menuOpen">
+                                    <button (click)="sendSMS()">Send SMS</button>
+                                    <button (click)="makeCall()">Make Call</button>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
