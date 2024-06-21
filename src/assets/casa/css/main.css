@@ -8148,7 +8148,7 @@ p.sticky-label {
   width: 100%;
   height: 100%;
   content: "";
-  background-color: var(--black);
+  /* background-color: var(--black); */
   z-index: 1;
   top: 20px;
   width: 90%;

@@ -62,3 +62,14 @@
 .hidden-link {
   display: none;
 }
+
+/* project.component.css */
+.project-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px; /* Ajusta esto si quieres bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ajusta esto si quieres sombra */
+}
+
