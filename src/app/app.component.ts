@@ -67,7 +67,7 @@ export class AppComponent {
     
 
     this.script.load(
-      'bundle',
+      
       'jquery',
       'viewport',
       'niceSelect',
@@ -103,7 +103,7 @@ export class AppComponent {
       window.open(`tel:${this.phoneNumber}`, '_self');
     }
     ngOnInit(): void {
-      this.global.getConfig().subscribe(
+      /* this.global.getConfig().subscribe(
         (data) => {
           this.global.configs = data;
            // Asigna los registros obtenidos a la variable 'registros'
@@ -112,7 +112,7 @@ export class AppComponent {
         (error) => {
           console.error(error); // Manejo de errores si la solicitud falla
         }
-      );
+      ); */
       this.global.getClientes().subscribe(
         (data) => {
           this.global.clientes = data.items; // Asigna los registros obtenidos a la variable 'registros'

@@ -4,7 +4,6 @@ interface Scripts {
     src: string;
 }  
 export const ScriptStore: Scripts[] = [
-    {name: 'bundle', src: './assets/jampack/vendors/bootstrap/dist/js/bootstrap.bundle.min.js'},
     {name: 'jquery', src: 'assets/casa/js/jquery-3.7.1.min.js'},
     {name: 'viewport', src: 'assets/casa/js/viewport.jquery.js'},
     {name: 'bootstrap', src: 'assets/casa/js/bootstrap.bundle.min.js'},
