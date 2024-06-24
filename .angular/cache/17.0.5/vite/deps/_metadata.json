@@ -1,34 +1,56 @@
 {
+<<<<<<< HEAD
   "hash": "a58144ab",
   "browserHash": "9a72aab8",
+=======
+  "hash": "1726af4c",
+  "browserHash": "cc422e72",
+>>>>>>> parent of f0d64e7 (telefono)
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
+<<<<<<< HEAD
       "fileHash": "6b695fda",
+=======
+      "fileHash": "2959bf0c",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
+<<<<<<< HEAD
       "fileHash": "2ce9d08d",
+=======
+      "fileHash": "609b803a",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
+<<<<<<< HEAD
       "fileHash": "2ecefb56",
+=======
+      "fileHash": "95f623b9",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
+<<<<<<< HEAD
       "fileHash": "c73bb58a",
+=======
+      "fileHash": "62113208",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
+<<<<<<< HEAD
       "fileHash": "a4d34fda",
       "needsInterop": false
     },
@@ -36,94 +58,154 @@
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
       "file": "@angular_platform-browser_animations.js",
       "fileHash": "11a06f9d",
+=======
+      "fileHash": "b0b7119e",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
+<<<<<<< HEAD
       "fileHash": "1f3ddd09",
+=======
+      "fileHash": "bb97cd85",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "@apollo/client/core": {
       "src": "../../../../../node_modules/@apollo/client/core/index.js",
       "file": "@apollo_client_core.js",
+<<<<<<< HEAD
       "fileHash": "8bb08e17",
+=======
+      "fileHash": "96c003a4",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "@twogate/ngx-photo-gallery": {
       "src": "../../../../../node_modules/@twogate/ngx-photo-gallery/fesm2022/twogate-ngx-photo-gallery.mjs",
       "file": "@twogate_ngx-photo-gallery.js",
+<<<<<<< HEAD
       "fileHash": "f2a35872",
+=======
+      "fileHash": "0c8d2292",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "apollo-angular": {
       "src": "../../../../../node_modules/apollo-angular/fesm2022/ngApollo.mjs",
       "file": "apollo-angular.js",
+<<<<<<< HEAD
       "fileHash": "65f1a2e3",
+=======
+      "fileHash": "5ee8cff5",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "apollo-angular/http": {
       "src": "../../../../../node_modules/apollo-angular/fesm2022/ngApolloLinkHttp.mjs",
       "file": "apollo-angular_http.js",
+<<<<<<< HEAD
       "fileHash": "8287a560",
+=======
+      "fileHash": "cb23a4b7",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "ng-gallery": {
       "src": "../../../../../node_modules/ng-gallery/fesm2022/ng-gallery.mjs",
       "file": "ng-gallery.js",
+<<<<<<< HEAD
       "fileHash": "96de0e79",
+=======
+      "fileHash": "c4643258",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "ng-multiselect-dropdown": {
       "src": "../../../../../node_modules/ng-multiselect-dropdown/fesm2022/ng-multiselect-dropdown.mjs",
       "file": "ng-multiselect-dropdown.js",
+<<<<<<< HEAD
       "fileHash": "e82f5dff",
+=======
+      "fileHash": "276ada8a",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "ngx-awesome-uploader": {
       "src": "../../../../../node_modules/ngx-awesome-uploader/fesm2022/ngx-awesome-uploader.mjs",
       "file": "ngx-awesome-uploader.js",
+<<<<<<< HEAD
       "fileHash": "ff20d5d1",
+=======
+      "fileHash": "081fa2c0",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "ngx-daterangepicker-material": {
       "src": "../../../../../node_modules/ngx-daterangepicker-material/fesm2020/ngx-daterangepicker-material.mjs",
       "file": "ngx-daterangepicker-material.js",
+<<<<<<< HEAD
       "fileHash": "60deec5d",
+=======
+      "fileHash": "c0d40d5c",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "ngx-device-detector": {
       "src": "../../../../../node_modules/ngx-device-detector/fesm2022/ngx-device-detector.mjs",
       "file": "ngx-device-detector.js",
+<<<<<<< HEAD
       "fileHash": "032331a0",
+=======
+      "fileHash": "7ddd1fd8",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "ngx-spinner": {
       "src": "../../../../../node_modules/ngx-spinner/fesm2022/ngx-spinner.mjs",
       "file": "ngx-spinner.js",
+<<<<<<< HEAD
       "fileHash": "18eb5873",
+=======
+      "fileHash": "e765a2b1",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "pocketbase": {
       "src": "../../../../../node_modules/pocketbase/dist/pocketbase.es.mjs",
       "file": "pocketbase.js",
+<<<<<<< HEAD
       "fileHash": "53737fae",
+=======
+      "fileHash": "6b2b8193",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
+<<<<<<< HEAD
       "fileHash": "1b22c6da",
+=======
+      "fileHash": "80e22ea8",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
       "file": "rxjs_operators.js",
+<<<<<<< HEAD
       "fileHash": "74dc5f30",
+=======
+      "fileHash": "64354780",
+>>>>>>> parent of f0d64e7 (telefono)
       "needsInterop": false
     }
   },
   "chunks": {
+<<<<<<< HEAD
     "chunk-3RS4NCFQ": {
       "file": "chunk-3RS4NCFQ.js"
     },
@@ -132,15 +214,25 @@
     },
     "chunk-4BDVD3UV": {
       "file": "chunk-4BDVD3UV.js"
+=======
+    "chunk-5NINVSVS": {
+      "file": "chunk-5NINVSVS.js"
+>>>>>>> parent of f0d64e7 (telefono)
     },
     "chunk-7FS4QK2U": {
       "file": "chunk-7FS4QK2U.js"
+    },
+    "chunk-4BDVD3UV": {
+      "file": "chunk-4BDVD3UV.js"
     },
     "chunk-RUE3ZS3O": {
       "file": "chunk-RUE3ZS3O.js"
     },
     "chunk-MKVPVDKM": {
       "file": "chunk-MKVPVDKM.js"
+    },
+    "chunk-BPP63SUK": {
+      "file": "chunk-BPP63SUK.js"
     },
     "chunk-QCIJCPJP": {
       "file": "chunk-QCIJCPJP.js"

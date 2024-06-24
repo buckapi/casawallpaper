@@ -6,7 +6,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { graphqlProvider } from './graphql.provider';
 import { GALLERY_CONFIG, GalleryConfig } from 'ng-gallery';
 import { NgxSpinnerModule,NgxSpinnerService } from 'ngx-spinner';
-import { provideAnimations } from '@angular/platform-browser/animations';
 // bootstrapApplication(AppComponent, {
 //   providers: [
 //     {
@@ -32,15 +31,15 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     NgxSpinnerService,
+    
     NgxSpinnerModule,
     provideHttpClient(),
     graphqlProvider,
     {
-        provide: GALLERY_CONFIG,
-        useValue: galleryConfig
-    }, provideHttpClient(), graphqlProvider,
-    provideAnimations()
-],
+      provide: GALLERY_CONFIG,
+      useValue: galleryConfig
+    }, provideHttpClient(), graphqlProvider
+  ],
   // ... cualquier otra configuración necesaria
 };
 
