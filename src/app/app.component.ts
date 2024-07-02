@@ -113,7 +113,7 @@ export class AppComponent {
           console.error(error); // Manejo de errores si la solicitud falla
         }
       ); */
-      this.global.getClientes().subscribe(
+      /* this.global.getClientes().subscribe(
         (data) => {
           this.global.clientes = data.items; // Asigna los registros obtenidos a la variable 'registros'
           // console.log(data); // respuesta
@@ -150,7 +150,7 @@ export class AppComponent {
         (error) => {
           console.error(error); // Manejo de errores si la solicitud falla
         }
-      );
+      ); */
     }
     toggleLayoutStyle() {
       if (this.layoutStyle === "default") {

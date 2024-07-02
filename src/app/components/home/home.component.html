@@ -676,48 +676,69 @@
                             <span class="wow fadeInUp">Stay Connected</span>
                             <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Create a better space</h2>
                         </div>
-                       <form action="" id="contact-form" method="POST" class="contact-form-items mt-4 mt-md-0">
+                       <form [formGroup]="request" (ngSubmit)="saveRequest()" action="" id="contact-form" method="" class="contact-form-items mt-4 mt-md-0">
                             <div class="row g-4">
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                     <div class="form-clt">
-                                        <input type="text" name="name" id="name" placeholder="Your Name">
+                                        <input type="text" placeholder="Your Name" id="name" name="name"
+                                        formControlName="name" required
+                                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors } ">
+                                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">titulo  obligatorio.</div>
+                                        </div>
                                     </div>
+                                
                                 </div>
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                     <div class="form-clt">
-                                        <input type="text" name="email" id="email" placeholder="Your Email">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <input type="text" name="number" id="number" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="form-clt">
-                                        <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <div class="nice-select" tabindex="0">
-                                            <span class="current">Select Services</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected focus">Interior Painting</li>
-                                                <li data-value="2" class="option">Wallpaper installation or repair</li>
-                                                <li data-value="3" class="option">Wallpaper removal</li>
-                                            </ul>
+                                        <input type="text" name="email" id="email" placeholder="Your Email"  formControlName="email" required
+                                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors } ">
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">titulo  obligatorio.</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                     <div class="form-clt">
-                                        <div class="nice-select" tabindex="0">
+                                        <input type="text" name="phone" id="phone" placeholder="Phone Number" formControlName="phone" required
+                                        [ngClass]="{ 'is-invalid': submitted && f['phone'].errors } ">
+                                        <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['phone'].errors['required']">titulo  obligatorio.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="form-clt">
+                                        <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" formControlName="zipcode" required
+                                        [ngClass]="{ 'is-invalid': submitted && f['zipcode'].errors } ">
+                                        <div *ngIf="submitted && f['zipcode'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['zipcode'].errors['required']">titulo  obligatorio.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s" id="serviceType" name="serviceType">
+                                    <div class="form-clt">
+                                        <div class="nice-select" tabindex="0" formControlName="serviceType" [ngClass]="{ 'is-invalid': submitted && f['serviceType'].errors }">
+                                            <span class="current">Select Services</span>
+                                            <ul class="list">
+                                                <li data-value="1" value="Interior Painting" class="option selected focus">Interior Painting</li>
+                                                <li data-value="2" value="Wallpaper installation or repair" class="option">Wallpaper installation or repair</li>
+                                                <li data-value="3" value="Wallpaper removal" class="option">Wallpaper removal</li>
+                                            </ul>
+                                            <div *ngIf="submitted && f['serviceType'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['serviceType'].errors['required']">Servicio es obligatorio.</div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s" id="projectType" name="projectType">
+                                    <div class="form-clt">
+                                        <div class="nice-select" tabindex="0" formControlName="projectType" [ngClass]="{ 'is-invalid': submitted && f['projectType'].errors }">
                                             <span class="current">Type of project</span>
                                             <ul class="list">
-                                                <li data-value="1" class="option selected focus">Installation</li>
-                                                <li data-value="2" class="option">Repair</li>
-                                                <li data-value="3" class="option">Installation and repair</li>
+                                                <li data-value="1" value="installation" class="option selected focus">Installation</li>
+                                                <li data-value="2" value="repair" class="option">Repair</li>
+                                                <li data-value="3" value="installation and repair" class="option">Installation and repair</li>
                                             </ul>
                                         </div>
                                     </div>

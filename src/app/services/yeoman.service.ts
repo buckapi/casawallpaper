@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class Yeoman {
   all:any=[];
+  allrequest:any=[];
   articulos:any[][]=[];
   categorySelected="";
   catalogo:any[]=[];

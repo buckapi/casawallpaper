@@ -30,78 +30,85 @@
 
   <!-- Portfolio Section Start -->
   <section class="portfolio-section fix section-padding">
-      <div class="portfolio-wrapper style-2">
-          <div class="row g-4">
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/01.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/02.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/03.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/04.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/05.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/06.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/07.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                  <div class="portfolio-items">
-                      <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/08.jpg');">
-                          
-                       </div>
-                  </div>
-              </div>
-          </div>
-          <!-- <div class="page-nav-wrap mt-5 text-center">
-              <ul>
-                  <li><a class="page-numbers" ><i class="fal fa-long-arrow-left"></i></a></li>
-                  <li><a class="page-numbers" >01</a></li>
-                  <li><a class="page-numbers" >02</a></li>
-                  <li><a class="page-numbers" >..</a></li>
-                  <li><a class="page-numbers" >10</a></li>
-                  <li><a class="page-numbers" >11</a></li>
-                  <li><a class="page-numbers" ><i class="fal fa-long-arrow-right"></i></a></li>
-              </ul>
-          </div> -->
-      </div>
-  </section>
+    <div class="portfolio-wrapper style-2">
+        <!-- Etiquetas de Filtro -->
+        <div class="filter-buttons">
+            <button class="filter-btn" onclick="filterItems('all')">Todos</button>
+            <button class="filter-btn" onclick="filterItems('image')">Imágenes</button>
+            <button class="filter-btn" onclick="filterItems('video')">Videos</button>
+        </div>
+        
+        <div class="row g-4 portfolio-items-wrapper">
+            <!-- Agrega una clase adicional para imágenes o videos -->
+       
+        <!--     <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 portfolio-item video">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/video-thumbnail.jpg');"></div>
+                </div>
+            </div> -->
+          
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/01.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/02.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/03.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/04.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/05.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/06.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/07.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+                <div class="portfolio-items">
+                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/08.jpg');">
+                        
+                     </div>
+                </div>
+            </div>
+            <!-- Repite los elementos con la clase adecuada -->
+        </div>
+    </div>
+</section>
+
+
 
   <!-- Cta Section Start -->
   <section class="cta-banner-section-2">

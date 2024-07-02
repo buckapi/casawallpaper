@@ -75,11 +75,9 @@ export interface CategoryInterface {
 export interface TemaInterface {
 
 }
-
-
-
-
 export interface TicketInterface {
+}
+export interface RequestInterface {
 }
 export interface SerialInterface {
 	serialT:string,
@@ -133,6 +131,12 @@ export class DataApiService {
 	saveDocument( document: DocumentInterface) {
 		const url_api =  'https://db.buckapi.com:8090/api/collections/vendricomDocuments/records';
 		return this.http.post<DocumentInterface>(url_api, document).pipe(
+		  map(data => data)
+		);
+	  }
+	  saveRequest( request: RequestInterface) {
+		const url_api = this.yeoman.origin.restUrl + 'https://db.camiwa.com:8092/api/collections/casaRequest/records';
+		return this.http.post<RequestInterface>(url_api, request).pipe(
 		  map(data => data)
 		);
 	  }
@@ -309,7 +313,10 @@ export class DataApiService {
 		return this.http.get(url_api);
 	}
 
-	
+	getGallery(id: string){
+		const url_api = this.yeoman.origin.restUrl+`/api/gallery/${id}`;
+		return this.http.get(url_api);
+	}
 
 	getCierresByBranch(branch: string){
 		const url_api = this.yeoman.origin.restUrl+`/api/infos?filter[where][idBranch]=${branch}`;

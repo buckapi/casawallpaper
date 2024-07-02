@@ -17,10 +17,10 @@ import { Butler } from './butler.service';
 })
 export class GlobalService {
 
-  private apiUrl = 'http://localhost:8090/api/collections/images/records';
-
+/*   private apiUrl = 'http://localhost:8090/api/collections/images/records';
+ */
   isInfoActive=false;
-  private apirestUrl = 'https://db.buckapi.com:8090/api/';
+  private apirestUrl = 'https://db.camiwa.com:8092/api/';
   clientes: any[] = [];
   documents: any[] = [];
   configs: any[] = [];
@@ -30,6 +30,7 @@ status:string="";
   temas: any[] = [];
   currentPage: number = 1;
   clients: any;
+  requests: any;
   device: string = '';
   currentUser: any;
   ordersSize = 0;
@@ -61,6 +62,9 @@ status:string="";
         return response.length > 0; // Devuelve true si hay al menos un atributo en la respuesta
       })
     );
+  }
+  getGallery(): Observable<any> {
+    return this.http.get<any>(this.apirestUrl + 'collections/casaGallery/records');
   }
   getClientes(): Observable<any> {
     return this.http.get<any>(this.apirestUrl + 'collections/vendricomClients/records');
@@ -183,7 +187,7 @@ status:string="";
         const imageUrl = response.id;
         // console.log('Imagen subida correctamente:', response);
         let imageComplete =
-        "https://db.vendricom.com:8091/api/files/" +
+        "https://db.camiwa.com:8092/api/files/" +
         response.collectionId +
         "/" +
         imageUrl +
