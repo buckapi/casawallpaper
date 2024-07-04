@@ -87,6 +87,7 @@ export interface SerialInterface {
 })
 export class DataApiService {
 	//ticket: Observable<any>;
+	private baseUrl = 'https://db.camiwa.com:8092/api';
 	url:any;
 	cards:any;
 	orders:any;
@@ -114,28 +115,15 @@ export class DataApiService {
 	});
 
 
-	// updateOrderStatus(orderId: string, newStatus: string): Observable<any> {
-	// 	const url = `${this.yeoman.origin.restUrl}/orders/${orderId}`; // Reemplaza con la URL y el endpoint correctos
-	// 	const body = { status: newStatus }; // Datos a enviar en el cuerpo de la solicitud
-	
-	// 	return this.http.put(url, body); // Realiza la solicitud PUT
-	//   }
-
-	  
-	// changePassword(userId: string, newPassword: string): Observable<string> {
-	// 	const url = `${this.yeoman.origin.restUrl}/api/user/changePassword`;
-	// 	const requestBody = { userId, newPassword };
-	
-	// 	return this.http.post<string>(url, requestBody, { headers: this.headers });
-	//   }
 	saveDocument( document: DocumentInterface) {
 		const url_api =  'https://db.buckapi.com:8090/api/collections/vendricomDocuments/records';
 		return this.http.post<DocumentInterface>(url_api, document).pipe(
 		  map(data => data)
 		);
 	  }
+	 
 	  saveRequest( request: RequestInterface) {
-		const url_api = this.yeoman.origin.restUrl + 'https://db.camiwa.com:8092/api/collections/casaRequest/records';
+		const url_api = this.yeoman.origin.restUrl + '/api/collections/casaRequest/records';
 		return this.http.post<RequestInterface>(url_api, request).pipe(
 		  map(data => data)
 		);

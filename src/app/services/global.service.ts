@@ -30,7 +30,7 @@ status:string="";
   temas: any[] = [];
   currentPage: number = 1;
   clients: any;
-  requests: any;
+  request: any;
   device: string = '';
   currentUser: any;
   ordersSize = 0;

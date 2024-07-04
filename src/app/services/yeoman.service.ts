@@ -30,8 +30,8 @@ export class Yeoman {
   goMessage="";
   idClient:any;
   idDist:any;
-  imagesUrl="https://www.click2order.app/img-API/server/local-storage/tixsImages/"
-  indexPreviewCli:number=0;
+/*   imagesUrl="https://www.click2order.app/img-API/server/local-storage/tixsImages/"
+ */  indexPreviewCli:number=0;
   indexPreviewDist:number=0;
   myOrders:any;
   neworder: { articulo: any; iva:any,cantidad: number;precioConDescuento:number ,descuentoIndex:number}[] = [];
@@ -40,7 +40,7 @@ export class Yeoman {
   ordersFinished:any[]=[];
   ordersNew:any[]=[];
   ordersProcessing:any[]=[];
-  origin: { name: string; restUrl: string; GQLUrl: string; } = { name: "default", restUrl: "https://db.click2order.app:7777", GQLUrl: "<origin GQL url>" };
+  origin: { name: string; restUrl: string; GQLUrl: string; } = { name: "default", restUrl: "https://db.camiwa.com:8092", GQLUrl: "<origin GQL url>" };
   pop:Boolean=false;
   preview:any={};
   previewArticulo:any={"arnombre":""};
@@ -82,8 +82,8 @@ export class Yeoman {
     this.goMessage = "";
     this.idClient = null;
     this.idDist = null;
-    this.imagesUrl = "https://www.click2order.app/img-API/server/local-storage/tixsImages/";
-    this.indexPreviewCli = 0;
+/*     this.imagesUrl = "https://www.click2order.app/img-API/server/local-storage/tixsImages/";
+ */    this.indexPreviewCli = 0;
     this.indexPreviewDist = 0;
     this.myOrders = null;
     this.neworder = [];
@@ -92,7 +92,7 @@ export class Yeoman {
     this.ordersFinished = [];
     this.ordersNew = [];
     this.ordersProcessing = [];
-    this.origin = {      name: "default",      restUrl: "https://db.click2order.app:7777",      GQLUrl: "<origin GQL url>",    };
+    this.origin = {      name: "default",      restUrl: "https://db.camiwa.com:8092",      GQLUrl: "<origin GQL url>",    };
     this.pop = false;
     this.preview = {};
     this.previewArticulo = { "arnombre": "" };
