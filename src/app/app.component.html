@@ -61,7 +61,27 @@
                     </div>
                 </div>
   
-                <div class="mobile-menu fix mb-3"></div>
+                <div class="mobile-menu fix mb-3">
+                    <nav id="mobile-menu">
+                        <ul>
+                            <li>
+                                <a (click)="virtualRouter.setRoute('home')">Home</a>
+                            </li>
+                            <li>
+                                <a (click)="virtualRouter.setRoute('about')">About</a>
+                            </li>
+                            <li>
+                                <a (click)="virtualRouter.setRoute('services')">Services</a>
+                            </li>
+                            <li>
+                                <a (click)="virtualRouter.setRoute('gallery')">Gallery</a>
+                            </li>
+                            <li>
+                                <a (click)="virtualRouter.setRoute('contact')">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
                 <div class="offcanvas__contact">
                     <h4>Contact Info</h4>
                     <ul>
