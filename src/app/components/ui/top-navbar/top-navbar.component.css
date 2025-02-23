@@ -1,7 +1,7 @@
 .header-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 38px 0;
 }
 .header-1.header-2 .mega-menu-wrapper .header-main .main-menu ul li a {

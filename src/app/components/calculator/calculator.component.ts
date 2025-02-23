@@ -112,7 +112,7 @@ export class CalculatorComponent {
         convertToFeet(value: number, unit: string): number {
           return unit === 'inches' ? value / 12 : value; // Convierte de pulgadas a pies si es necesario
         }
-        clearResult() {
+       /*  clearResult() {
           this.calculatorForm.reset({
               height: '',
               heightUnit: 'feet',
@@ -129,5 +129,23 @@ export class CalculatorComponent {
           this.totalWallArea = 0; // Limpia el área total
           this.totalRollArea = 0; // Limpia el área cubierta por los rollos
           this.rollsNeeded = 0; // Limpia la cantidad de rollos necesarios
-      }
+      } */
+      clearResult() {
+        this.calculatorForm.reset({
+            height: '',
+            heightUnit: 'feet',
+            width: '',
+            widthUnit: 'feet',
+            wallCount: 1,
+            rolls: this.fb.array([this.createRoll()]), // Reinicia el formulario de rollos
+            wastePercentage: 0,
+            totalWallArea: 0, // Cambiado a número
+            totalRollArea: 0, // Cambiado a número
+            rollsNeeded: 0 // Cambiado a número
+        });
+        this.result = ''; // Limpia el resultado
+        this.totalWallArea = 0; // Limpia el área total
+        this.totalRollArea = 0; // Limpia el área cubierta por los rollos
+        this.rollsNeeded = 0; // Limpia la cantidad de rollos necesarios
+    }
 }
