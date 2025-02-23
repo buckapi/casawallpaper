@@ -16,3 +16,8 @@
 .flex-container .form-clt {
     margin-right: 10px; /* Espacio entre los campos */
 }
+@media (max-width: 991px) {
+    .contact-section-4 {
+        margin-top: 80px;
+    }
+}

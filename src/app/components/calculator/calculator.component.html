@@ -79,7 +79,7 @@
                             <div class="row g-4">
                                 <h3 class="wow fadeInUp">Wall measurements</h3>
                                 <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
-                                    <label>Height</label>
+                                    <label><strong>Height</strong></label>
                                     <input type="number" name="height" id="height" formControlName="height" placeholder="Height">
                                     <select name="heightUnit" id="heightUnit" formControlName="heightUnit">
                                         <option value="feet">feet</option>
@@ -87,7 +87,7 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
-                                    <label>Width</label>
+                                    <label><strong>Width</strong></label>
                                     <input type="number" name="width" id="width" formControlName="width" placeholder="Width">
                                     <select name="widthUnit" id="widthUnit" formControlName="widthUnit" style="border: 1px solid #000; color: #000;">
                                         <option value="feet">feet</option>
@@ -95,7 +95,7 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp form-clt flex-container">
-                                    <label>Wall Count</label>
+                                    <label><strong>Wall Count</strong></label>
                                     <div class="form-clt">
                                         <input type="number" name="wallCount" id="wallCount" formControlName="wallCount" placeholder="Quantity of walls (optional)">
                                     </div>
@@ -105,13 +105,11 @@
                                         Add wall <i class="fas fa-plus"></i>
                                     </button>
                                 </div> 
-
-                                <h3 class="wow fadeInUp">Wallpaper roll measurements</h3>
-                            
+                                <h3 class="wow fadeInUp">Wallpaper roll measurements</h3>                            
                                 <div formArrayName="rolls">
                                     <div *ngFor="let roll of rolls; let i = index" [formGroupName]="i" class="flex-container">
                                         <div class="col-lg-4 form-clt flex-container">
-                                            <label>Roll Width</label>
+                                            <label><strong>Roll Width</strong></label>
                                             <input type="number" name="rollWidth" formControlName="rollWidth" placeholder="Width of the roll">
                                             <select name="rollWidthUnit" formControlName="rollWidthUnit">
                                                 <option value="feet">feet</option>
@@ -119,7 +117,7 @@
                                             </select>
                                         </div>
                                         <div class="col-lg-4 form-clt flex-container">
-                                            <label>Roll Length</label>
+                                            <label><strong>Roll Length</strong></label>
                                             <input type="number" name="rollLength" formControlName="rollLength" placeholder="Length of the roll">
                                             <select name="rollLengthUnit" formControlName="rollLengthUnit">
                                                 <option value="feet">feet</option>
@@ -127,12 +125,8 @@
                                             </select>
                                         </div>
                                         <div class="col-lg-4 form-clt flex-container">
-                                            <label>Paper</label>
-                                            <input type="number" name="rollLength" formControlName="rollLength" placeholder="Length of the roll">
-                                            <select name="rollLengthUnit" formControlName="rollLengthUnit">
-                                                <option value="feet">feet</option>
-                                                <option value="inches">inches</option>
-                                            </select>
+                                            <label><strong>Repeat of the design pattern</strong> </label>
+                                            <input type="number" name="pattern" formControlName="pattern" placeholder="Repeat of the design pattern">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -143,7 +137,7 @@
                                 </div>
                                 
                                 <div class="col-lg-8 wow fadeInUp">
-                                <label>Waste percentage (%)</label>
+                                <label><strong>Waste percentage (%)</strong></label>
                                 <select name="wastePercentage" formControlName="wastePercentage">
                                     <option [value]="10">10%</option>
                                     <option [value]="15">15%</option>

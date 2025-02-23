@@ -62,6 +62,16 @@ export class CalculatorComponent {
       const rolls = this.calculatorForm.get('rolls') as FormArray;
       rolls.push(this.createRoll());
     }
+
+    addWall() {
+      const walls = this.calculatorForm.get('walls') as FormArray;
+      walls.push(this.fb.group({
+          height: ['', Validators.required],
+          heightUnit: ['feet', Validators.required],
+          width: ['', Validators.required],
+          widthUnit: ['feet', Validators.required]
+      }));
+  }
   
     // Manejar el envío del formulario
  
