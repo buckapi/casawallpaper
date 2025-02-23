@@ -5,6 +5,11 @@ import {
   trigger
 } from "./chunk-5NINVSVS.js";
 import {
+  Platform,
+  coerceElement,
+  getRtlScrollAxisType
+} from "./chunk-BRVH74AT.js";
+import {
   DomSanitizer
 } from "./chunk-7FS4QK2U.js";
 import "./chunk-RUE3ZS3O.js";
@@ -17,8 +22,7 @@ import {
   NgSwitch,
   NgSwitchCase,
   NgSwitchDefault,
-  NgTemplateOutlet,
-  isPlatformBrowser
+  NgTemplateOutlet
 } from "./chunk-MKVPVDKM.js";
 import {
   ChangeDetectionStrategy,
@@ -37,7 +41,6 @@ import {
   NgZone,
   Optional,
   Output,
-  PLATFORM_ID,
   QueryList,
   TemplateRef,
   ViewChild,
@@ -119,101 +122,6 @@ import {
   __spreadProps,
   __spreadValues
 } from "./chunk-3HGWY7W4.js";
-
-// node_modules/@angular/cdk/fesm2022/platform.mjs
-var hasV8BreakIterator;
-try {
-  hasV8BreakIterator = typeof Intl !== "undefined" && Intl.v8BreakIterator;
-} catch {
-  hasV8BreakIterator = false;
-}
-var _Platform = class _Platform {
-  constructor(_platformId) {
-    this._platformId = _platformId;
-    this.isBrowser = this._platformId ? isPlatformBrowser(this._platformId) : typeof document === "object" && !!document;
-    this.EDGE = this.isBrowser && /(edge)/i.test(navigator.userAgent);
-    this.TRIDENT = this.isBrowser && /(msie|trident)/i.test(navigator.userAgent);
-    this.BLINK = this.isBrowser && !!(window.chrome || hasV8BreakIterator) && typeof CSS !== "undefined" && !this.EDGE && !this.TRIDENT;
-    this.WEBKIT = this.isBrowser && /AppleWebKit/i.test(navigator.userAgent) && !this.BLINK && !this.EDGE && !this.TRIDENT;
-    this.IOS = this.isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window);
-    this.FIREFOX = this.isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
-    this.ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT;
-    this.SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
-  }
-};
-_Platform.ɵfac = function Platform_Factory(t) {
-  return new (t || _Platform)(ɵɵinject(PLATFORM_ID));
-};
-_Platform.ɵprov = ɵɵdefineInjectable({
-  token: _Platform,
-  factory: _Platform.ɵfac,
-  providedIn: "root"
-});
-var Platform = _Platform;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Platform, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], () => [{
-    type: Object,
-    decorators: [{
-      type: Inject,
-      args: [PLATFORM_ID]
-    }]
-  }], null);
-})();
-var _PlatformModule = class _PlatformModule {
-};
-_PlatformModule.ɵfac = function PlatformModule_Factory(t) {
-  return new (t || _PlatformModule)();
-};
-_PlatformModule.ɵmod = ɵɵdefineNgModule({
-  type: _PlatformModule
-});
-_PlatformModule.ɵinj = ɵɵdefineInjector({});
-var PlatformModule = _PlatformModule;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(PlatformModule, [{
-    type: NgModule,
-    args: [{}]
-  }], null, null);
-})();
-var rtlScrollAxisType;
-function getRtlScrollAxisType() {
-  if (typeof document !== "object" || !document) {
-    return 0;
-  }
-  if (rtlScrollAxisType == null) {
-    const scrollContainer = document.createElement("div");
-    const containerStyle = scrollContainer.style;
-    scrollContainer.dir = "rtl";
-    containerStyle.width = "1px";
-    containerStyle.overflow = "auto";
-    containerStyle.visibility = "hidden";
-    containerStyle.pointerEvents = "none";
-    containerStyle.position = "absolute";
-    const content = document.createElement("div");
-    const contentStyle = content.style;
-    contentStyle.width = "2px";
-    contentStyle.height = "1px";
-    scrollContainer.appendChild(content);
-    document.body.appendChild(scrollContainer);
-    rtlScrollAxisType = 0;
-    if (scrollContainer.scrollLeft === 0) {
-      scrollContainer.scrollLeft = 1;
-      rtlScrollAxisType = scrollContainer.scrollLeft === 0 ? 1 : 2;
-    }
-    scrollContainer.remove();
-  }
-  return rtlScrollAxisType;
-}
-
-// node_modules/@angular/cdk/fesm2022/coercion.mjs
-function coerceElement(elementOrRef) {
-  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
-}
 
 // node_modules/ng-gallery/fesm2022/ng-gallery.mjs
 function GalleryDotsComponent_div_0_Template(rf, ctx) {
@@ -2477,7 +2385,7 @@ var _SmoothScrollManager = class _SmoothScrollManager {
     if (this._platform.isBrowser) {
       const el = this._getElement(scrollable);
       const isRtl = getComputedStyle(el).direction === "rtl";
-      const rtlScrollAxisType2 = getRtlScrollAxisType();
+      const rtlScrollAxisType = getRtlScrollAxisType();
       const options = __spreadValues(__spreadValues(__spreadValues({}, this._defaultOptions), customOptions), {
         // Rewrite start & end offsets as right or left offsets.
         left: customOptions.left == null ? isRtl ? customOptions.end : customOptions.start : customOptions.left,
@@ -2486,13 +2394,13 @@ var _SmoothScrollManager = class _SmoothScrollManager {
       if (options.bottom != null) {
         options.top = el.scrollHeight - el.clientHeight - options.bottom;
       }
-      if (isRtl && rtlScrollAxisType2 !== 0) {
+      if (isRtl && rtlScrollAxisType !== 0) {
         if (options.left != null) {
           options.right = el.scrollWidth - el.clientWidth - options.left;
         }
-        if (rtlScrollAxisType2 === 2) {
+        if (rtlScrollAxisType === 2) {
           options.left = options.right;
-        } else if (rtlScrollAxisType2 === 1) {
+        } else if (rtlScrollAxisType === 1) {
           options.left = options.right ? -options.right : options.right;
         }
       } else {

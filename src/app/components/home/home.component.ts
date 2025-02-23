@@ -9,6 +9,8 @@ import { virtualRouter } from '@app/services/virtualRouter.service';
 import { Yeoman } from '@app/services/yeoman.service';
 import { DataApiService } from '@app/services/data-api-service';
 import swal from 'sweetalert2';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-home',
@@ -24,7 +26,7 @@ export class HomeComponent implements  OnInit {
   public isError = false;
   phoneNumber: string = '9198855401';
   menuOpen: boolean = false;
-
+  showImage: boolean = true;
   constructor(
     public global: GlobalService,
     public virtualRouter: virtualRouter,
@@ -32,8 +34,12 @@ export class HomeComponent implements  OnInit {
     public _butler: Butler,
     public http: HttpClient,
     public yeoman: Yeoman,
-    public dataApiService: DataApiService
-  ) {
+    public dataApiService: DataApiService,
+    private breakpointObserver: BreakpointObserver)
+   {
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      this.showImage = !result.matches; // Oculta la imagen en dispositivos móviles
+  });
     this.ngFormRequest = this.formBuilder.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
