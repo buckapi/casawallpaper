@@ -27,11 +27,14 @@
     .header-main {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-evenly;
       padding: 15px 0;
     }
     .phone-number {
         font-size: 0.8rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
+    }
+    .header-logo-2{
+        max-width: 160%;
     }
   }
   .search-trigger {

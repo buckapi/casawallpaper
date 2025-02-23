@@ -209,3 +209,173 @@
         </div>
     </div>
 </section>
+<!-- <section class="contact-section-4 fix section-padding pt-80">
+    <div class="container">
+        <div class="contact-wrapper-3">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact-content">
+                        <div class="section-title">
+                            <h6 class="wow fadeInUp">Welcome to Casawallpaper</h6>
+                            <h2 class="splt-txt wow" data-splitting>Calculator</h2>
+                        </div>
+                        <div class="col-lg-12 wow fadeInUp">
+                            <div id="result">
+                                <p>1. Total wall area: {{ totalWallArea }} ft²</p>
+                                <p>2. Area covered by a roll: {{ totalRollArea }} ft²</p>
+                                <p>3. Rolls needed: {{ result }}</p>
+                                <p>4. Additional waste: {{ calculatorForm.value.wastePercentage }}%</p>
+                            </div>
+                        </div>
+                        
+                          
+                          <form id="contact-form" method="POST" class="contact-form-items mt-4 mt-md-0" [formGroup]="calculatorForm" (ngSubmit)="onSubmit()">
+                            <div class="row g-4">
+                                <h3 class="wow fadeInUp">Wall measurements</h3>
+                                <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
+                                    <label><strong>Height</strong></label>
+                                    <input type="number" name="height" id="height" formControlName="height" placeholder="Height">
+                                    <select name="heightUnit" id="heightUnit" formControlName="heightUnit">
+                                        <option value="feet">feet</option>
+                                        <option value="inches">inches</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
+                                    <label><strong>Width</strong></label>
+                                    <input type="number" name="width" id="width" formControlName="width" placeholder="Width">
+                                    <select name="widthUnit" id="widthUnit" formControlName="widthUnit" style="border: 1px solid #000; color: #000;">
+                                        <option value="feet">feet</option>
+                                        <option value="inches">inches</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp form-clt flex-container">
+                                    <label><strong>Wall Count</strong></label>
+                                    <div class="form-clt">
+                                        <input type="number" name="wallCount" id="wallCount" formControlName="wallCount" placeholder="Quantity of walls (optional)">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-xs-12">
+                                    <button type="button" (click)="addWall()" class="theme-btn padding-style">
+                                        Add wall <i class="fas fa-plus"></i>
+                                    </button>
+                                </div> 
+                                <div formArrayName="walls">
+                                    <div *ngFor="let wall of wallsArray.controls; let i = index" [formGroupName]="i">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
+                                                <label><strong>Height</strong></label>
+                                                <input type="number" name="height" id="height" formControlName="height" placeholder="Height">
+                                                <select name="heightUnit" id="heightUnit" formControlName="heightUnit">
+                                                    <option value="feet">feet</option>
+                                                    <option value="inches">inches</option>
+                                                </select>
+                                            </div><div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
+                                                <label><strong>Width</strong></label>
+                                                <input type="number" name="width" id="width" formControlName="width" placeholder="Width">
+                                                <select name="widthUnit" id="widthUnit" formControlName="widthUnit" style="border: 1px solid #000; color: #000;">
+                                                    <option value="feet">feet</option>
+                                                    <option value="inches">inches</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp form-clt flex-container">
+                                                <label><strong>Wall Count</strong></label>
+                                                <div class="form-clt">
+                                                    <input type="number" name="wallCount" id="wallCount" formControlName="wallCount" placeholder="Quantity of walls (optional)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-xs-12">
+                                            <button type="button" (click)="removeWall(i)" class="theme-btn padding-style">
+                                                Remove wall <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <h3 class="wow fadeInUp">Wallpaper roll measurements</h3>    
+                                <div class="col-lg-4 form-clt flex-container">
+                                    <label><strong>Roll Width</strong></label>
+                                    <input type="number" name="rollWidth" formControlName="rollWidth" placeholder="Width of the roll">
+                                    <select name="rollWidthUnit" formControlName="rollWidthUnit">
+                                        <option value="feet">feet</option>
+                                        <option value="inches">inches</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 form-clt flex-container">
+                                    <label><strong>Roll Length</strong></label>
+                                    <input type="number" name="rollLength" formControlName="rollLength" placeholder="Length of the roll">
+                                    <select name="rollLengthUnit" formControlName="rollLengthUnit">
+                                        <option value="feet">feet</option>
+                                        <option value="inches">inches</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 form-clt flex-container">
+                                    <label><strong>Pattern Repeat</strong></label>
+                                    <input type="number" name="patternRepeat" formControlName="patternRepeat" placeholder="Repeat of the design pattern">
+                                </div>
+                                <div class="col-lg-4">
+                                    <button type="button" (click)="addRoll()" class="theme-btn padding-style">
+                                        Add roll <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>                                                  
+                                <div formArrayName="rolls">
+                                    <div *ngFor="let roll of rolls.controls; let i = index" [formGroupName]="i">
+                                        <div class="row">
+                                            <div class="col-lg-4 form-clt flex-container">
+                                                <label><strong>Roll Width</strong></label>
+                                                <input type="number" name="rollWidth" formControlName="rollWidth" placeholder="Width of the roll">
+                                                <select name="rollWidthUnit" formControlName="rollWidthUnit">
+                                                    <option value="feet">feet</option>
+                                                    <option value="inches">inches</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-4 form-clt flex-container">
+                                                <label><strong>Roll Length</strong></label>
+                                                <input type="number" name="rollLength" formControlName="rollLength" placeholder="Length of the roll">
+                                                <select name="rollLengthUnit" formControlName="rollLengthUnit">
+                                                    <option value="feet">feet</option>
+                                                    <option value="inches">inches</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-4 form-clt flex-container">
+                                                <label><strong>Pattern Repeat</strong></label>
+                                                <input type="number" name="patternRepeat" formControlName="patternRepeat" placeholder="Repeat of the design pattern">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-xs-12">
+                                            <button type="button" (click)="removeRoll(i)" class="theme-btn padding-style">
+                                                Remove roll <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="col-lg-8 wow fadeInUp">
+                                    <label><strong>Waste percentage (%)</strong></label>
+                                    <select name="wastePercentage" formControlName="wastePercentage">
+                                        <option [value]="10">10%</option>
+                                        <option [value]="15">15%</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 wow fadeInUp">
+                                    <button type="submit" class="theme-btn padding-style">
+                                        Calculate <i class="fas fa-long-arrow-right"></i>
+                                    </button>
+                                    
+                                </div>
+                                <div class="col-lg-6 wow fadeInUp">
+                                    <div class="result-display">
+                                        <button type="button" class="theme-btn padding-style" (click)="clearResult()"> 
+                                            Clear <i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </form> 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ -->
