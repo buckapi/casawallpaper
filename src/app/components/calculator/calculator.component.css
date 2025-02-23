@@ -1,0 +1,18 @@
+.flex-container {
+    display: flex;
+    align-items: center; /* Alinear verticalmente al centro */
+}
+
+.flex-container input {
+    margin-right: 10px; /* Espacio entre el input y el select */
+}
+
+.flex-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: space-between; /* Espacio entre los elementos */
+}
+
+.flex-container .form-clt {
+    margin-right: 10px; /* Espacio entre los campos */
+}

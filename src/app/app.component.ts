@@ -23,6 +23,7 @@ import { Gallery } from 'ng-gallery';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HomeComponent } from './components/home/home.component';
 import { PhotoGalleryModule } from '@twogate/ngx-photo-gallery';
+import { CalculatorComponent } from './components/calculator/calculator.component';
 
 
 @Component({
@@ -45,9 +46,8 @@ import { PhotoGalleryModule } from '@twogate/ngx-photo-gallery';
     AboutComponent,
     GalleryComponent,
     HomeComponent,
-    PhotoGalleryModule
-    
-    
+    PhotoGalleryModule,
+    CalculatorComponent    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

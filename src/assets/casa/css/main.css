@@ -4359,7 +4359,7 @@ input.main-search-input::placeholder {
   width: unset;
   outline: none;
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #212529;
   color: var(--white);
   padding: 16px 20px;
   font-weight: normal;
@@ -4377,7 +4377,8 @@ input.main-search-input::placeholder {
   }
 }
 .nice-select span {
-  color: rgba(255, 255, 255, 0.7019607843);
+  /* color: rgba(255, 255, 255, 0.7019607843); */
+  color: #212529;
   font-size: 16px;
   margin-bottom: 0 !important;
 }
@@ -4399,7 +4400,8 @@ input.main-search-input::placeholder {
 }
 
 .nice-select.open .list {
-  background: var(--black);
+  /* background: var(--black); */
+  background: #fff;
   margin-top: 16px;
   width: 100%;
   text-transform: capitalize;

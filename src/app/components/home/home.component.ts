@@ -8,7 +8,7 @@ import { GlobalService } from '@app/services/global.service';
 import { virtualRouter } from '@app/services/virtualRouter.service';
 import { Yeoman } from '@app/services/yeoman.service';
 import { DataApiService } from '@app/services/data-api-service';
-import Swal from 'sweetalert2';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -71,7 +71,7 @@ export class HomeComponent implements  OnInit {
 
   this.dataApiService.saveRequest(data).subscribe(
     (response) => {
-      Swal.fire({
+      swal.fire({
         icon: 'success',
         title: 'Éxito',
         text: 'Request sent successfully.'
@@ -94,7 +94,7 @@ export class HomeComponent implements  OnInit {
     },
     (error) => {
       this.onIsError();
-      Swal.fire({
+      swal.fire({
         icon: 'error',
         title: 'Error',
         text: 'An error occurred while saving the request. Please try again later.'
