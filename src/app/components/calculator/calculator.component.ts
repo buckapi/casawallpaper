@@ -28,29 +28,51 @@ export class CalculatorComponent {
         rolls: this.fb.array([this.createRoll()]),
         wastePercentage: [0]
       }); */
-      this.calculatorForm = this.fb.group({
+     /*  this.calculatorForm = this.fb.group({
         height: ['', Validators.required],
         heightUnit: ['feet', Validators.required],
         width: ['', Validators.required],
         widthUnit: ['feet', Validators.required],
         wallCount: [1],
+        walls: this.fb.array([this.addWall()]),
         rolls: this.fb.array([this.createRoll()]),
         wastePercentage: [0],
         totalWallArea: 0, // Cambia de string a number
         totalRollArea: 0, // Cambia de string a number
         rollsNeeded: 0 // Cambia de string a number
-    });
+    }); */
+    this.calculatorForm = this.fb.group({
+      // other controls
+      walls: this.fb.array([this.createWall()]), // Ensure this line exists
+      rolls: this.fb.array([this.createRoll()]),
+      wastePercentage: [0],
+      totalWallArea: 0, // Cambia de string a number
+      totalRollArea: 0, // Cambia de string a number
+      rollsNeeded: 0 // Cambia de string a number
+      // other controls
+  });
     }
   
     // Crear un formulario para un solo rollo
     createRoll() {
       return this.fb.group({
-        rollWidth: ['', Validators.required],
-        rollWidthUnit: ['feet', Validators.required],
-        rollLength: ['', Validators.required],
-        rollLengthUnit: ['feet', Validators.required]
+          rollWidth: ['', Validators.required],
+          rollWidthUnit: ['feet', Validators.required],
+          rollLength: ['', Validators.required],
+          rollLengthUnit: ['feet', Validators.required],
+          pattern: ['', Validators.required] // Ensure pattern is defined here
       });
-    }
+  }
+
+    createWall() {
+      return this.fb.group({
+          height: ['', Validators.required],
+          heightUnit: ['feet', Validators.required],
+          width: ['', Validators.required],
+          widthUnit: ['feet', Validators.required],
+          wallCount: [1, Validators.required] // Ensure wallCount is defined here
+      });
+  }
   
     // Obtener los controles de los rollos
     get rolls() {
@@ -63,19 +85,24 @@ export class CalculatorComponent {
       rolls.push(this.createRoll());
     }
 
+    get walls() {
+      return (this.calculatorForm.get('walls') as FormArray).controls;
+    }
+
     addWall() {
+      console.log(this.calculatorForm); // Check if this is defined
       const walls = this.calculatorForm.get('walls') as FormArray;
-      walls.push(this.fb.group({
-          height: ['', Validators.required],
-          heightUnit: ['feet', Validators.required],
-          width: ['', Validators.required],
-          widthUnit: ['feet', Validators.required]
-      }));
+      if (walls) {
+          walls.push(this.createWall());
+      } else {
+          console.error("Walls FormArray is undefined");
+      }
   }
+  
   
     // Manejar el envío del formulario
  
-        onSubmit() {
+        /* onSubmit() {
           if (this.calculatorForm.valid) {
               const formValues = this.calculatorForm.value;
       
@@ -117,29 +144,62 @@ export class CalculatorComponent {
           } else {
               this.result = 'Please fill out the form correctly.';
           }
-      }
+      } */
       
-        convertToFeet(value: number, unit: string): number {
+          onSubmit() {
+            if (this.calculatorForm.valid) {
+                const formValues = this.calculatorForm.value;
+        
+                // Initialize total areas and rolls needed
+                let totalWallArea = 0;
+                let totalRollsNeeded = 0;
+        
+                // Calculate total wall area for each wall
+                formValues.walls.forEach((wall: any) => {
+                  const height = this.convertToFeet(wall.height, wall.heightUnit);
+                  const width = this.convertToFeet(wall.width, wall.widthUnit);
+                  const wallCount = wall.wallCount || 1;
+      
+                  // Calculate area for this wall
+                  const wallArea = height * width * wallCount;
+                  totalWallArea += wallArea; // Accumulate total wall area
+              });
+      
+              this.totalWallArea = totalWallArea; // Update the totalWallArea variable
+              
+        
+                // Calculate the total roll area
+                let totalRollArea = 0;
+                formValues.rolls.forEach((roll: any) => {
+                    const rollWidth = this.convertToFeet(roll.rollWidth, roll.rollWidthUnit);
+                    const rollLength = this.convertToFeet(roll.rollLength, roll.rollLengthUnit);
+                    totalRollArea += rollWidth * rollLength;
+                });
+        
+                // Define the area covered by one roll (example given)
+                const AREA_CUBIERTA_POR_ROLLO = 66; // square feet
+        
+                // Calculate rolls needed based on total wall area
+                totalRollsNeeded = Math.ceil(totalWallArea / AREA_CUBIERTA_POR_ROLLO);
+        
+                // Get the waste percentage from the form
+                const porcentajeDesperdicio = formValues.wastePercentage || 0;
+        
+                // Calculate additional waste and round up
+                const desperdicio = totalRollsNeeded * (porcentajeDesperdicio / 100);
+                totalRollsNeeded += Math.ceil(desperdicio);
+        
+                // Show the result
+                this.result = `You need ${totalRollsNeeded} wallpaper rolls to cover the walls.`;
+                this.totalRollArea = totalRollArea; // Assign the total area covered by the rolls
+            } else {
+                this.result = 'Please fill out the form correctly.';
+            }
+        }
+          convertToFeet(value: number, unit: string): number {
           return unit === 'inches' ? value / 12 : value; // Convierte de pulgadas a pies si es necesario
         }
-       /*  clearResult() {
-          this.calculatorForm.reset({
-              height: '',
-              heightUnit: 'feet',
-              width: '',
-              widthUnit: 'feet',
-              wallCount: 1,
-              rolls: this.fb.array([this.createRoll()]),
-              wastePercentage: 0,
-              totalWallArea: 0, // Cambiado a número
-              totalRollArea: 0, // Cambiado a número
-              rollsNeeded: 0 // Cambiado a número
-          });
-          this.result = ''; // Limpia el resultado
-          this.totalWallArea = 0; // Limpia el área total
-          this.totalRollArea = 0; // Limpia el área cubierta por los rollos
-          this.rollsNeeded = 0; // Limpia la cantidad de rollos necesarios
-      } */
+      
       clearResult() {
         this.calculatorForm.reset({
             height: '',

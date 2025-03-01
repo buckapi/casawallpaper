@@ -16,95 +16,42 @@
                                 <p>4. Additional waste: {{ calculatorForm.value.wastePercentage }}%</p>
                             </div>
                         </div>
-                          
-                       <!--   <form id="contact-form" method="POST" class="contact-form-items mt-4 mt-md-0" [formGroup]="calculatorForm" (ngSubmit)="onSubmit()">
-                            <div class="row g-4">
-                                <h3 class="wow fadeInUp">Medidas de la pared</h3>
-                                <div class="col-lg-4 form-clt flex-container">
-                                    <input type="number" name="height" id="height" formControlName="height" placeholder="Altura">
-                                    <select name="heightUnit" id="heightUnit">
-                                        <option value="feet">pies</option>
-                                        <option value="inches">pulgadas</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 form-clt flex-container">
-                                    <input type="number" name="width" id="width" formControlName="width" placeholder="Ancho">
-                                    <select name="widthUnit" id="widthUnit">
-                                        <option value="feet">pies</option>
-                                        <option value="inches">pulgadas</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 wow fadeInUp">
-                                    <div class="form-clt">
-                                        <input type="number" name="wallCount" id="wallCount" formControlName="wallCount" placeholder="Cantidad de paredes (opcional)">
-                                    </div>
-                                </div>
-                                <h3 class="wow fadeInUp">Medidas del rollo de papel tapiz</h3>
-                                <div class="col-lg-4 form-clt flex-container">
-                                    <input type="number" name="rollWidth" id="rollWidth" formControlName="rollWidth" placeholder="Ancho del rollo">
-                                    <select name="rollWidthUnit" id="rollWidthUnit">
-                                        <option value="feet">pies</option>  
-                                        <option value="inches">pulgadas</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 form-clt flex-container">
-                                    <input type="number" name="rollLength" id="rollLength" formControlName="rollLength" placeholder="Largo del rollo">
-                                    <select name="rollLengthUnit" id="rollLengthUnit">
-                                        <option value="feet">pies</option>
-                                        <option value="inches">pulgadas</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4">
-                                    <button type="button" (click)="addRoll()" class="theme-btn padding-style">
-                                        Agregar otro rollo <i class="fas fa-plus"></i>
-                                    </button>
-                                   
-                                </div>
-                                <div class="col-lg-4 wow fadeInUp">
-                                    <div class="form-clt">
-                                        <input type="number" name="wastePercentage" id="wastePercentage" formControlName="wastePercentage" placeholder="Desperdicio extra (%)">
-                                    </div>
-                                </div>
-                                <div class="col-lg-7 wow fadeInUp">
-                                    <button type="submit" class="theme-btn padding-style">
-                                        Calcular <i class="fas fa-long-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <div class="col-lg-12 wow fadeInUp">
-                                    <div id="result" class="result-display"></div>
-                                </div>
-                            </div>
-                        </form>  -->
+                       
                         <form id="contact-form" method="POST" class="contact-form-items mt-4 mt-md-0" [formGroup]="calculatorForm" (ngSubmit)="onSubmit()">
                             <div class="row g-4">
                                 <h3 class="wow fadeInUp">Wall measurements</h3>
-                                <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
-                                    <label><strong>Height</strong></label>
-                                    <input type="number" name="height" id="height" formControlName="height" placeholder="Height">
-                                    <select name="heightUnit" id="heightUnit" formControlName="heightUnit">
-                                        <option value="feet">feet</option>
-                                        <option value="inches">inches</option>
-                                    </select>
+                               
+                                <div formArrayName="walls">
+                                    <div *ngFor="let wall of walls; let i = index" [formGroupName]="i" class="flex-container">
+                                        <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
+                                            <label><strong>Height</strong></label>
+                                            <input type="number" name="height" id="height" formControlName="height" placeholder="Height">
+                                            <select name="heightUnit" id="heightUnit" formControlName="heightUnit">
+                                                <option value="feet">feet</option>
+                                                <option value="inches">inches</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
+                                            <label><strong>Width</strong></label>
+                                            <input type="number" name="width" id="width" formControlName="width" placeholder="Width">
+                                            <select name="widthUnit" id="widthUnit" formControlName="widthUnit" style="border: 1px solid #000; color: #000;">
+                                                <option value="feet">feet</option>
+                                                <option value="inches">inches</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp form-clt flex-container">
+                                            <label><strong>Wall Count</strong></label>
+                                            <div class="form-clt">
+                                                <input type="number" name="wallCount" id="wallCount" formControlName="wallCount" placeholder="Quantity of walls (optional)">
+                                            </div>
+                                        </div>
+                                    </div>    
+                                    <div class="col-lg-3 col-md-3 col-xs-12">
+                                        <button type="button" (click)="addWall()" class="theme-btn padding-style">
+                                            Add wall <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div> 
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 form-clt flex-container">
-                                    <label><strong>Width</strong></label>
-                                    <input type="number" name="width" id="width" formControlName="width" placeholder="Width">
-                                    <select name="widthUnit" id="widthUnit" formControlName="widthUnit" style="border: 1px solid #000; color: #000;">
-                                        <option value="feet">feet</option>
-                                        <option value="inches">inches</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp form-clt flex-container">
-                                    <label><strong>Wall Count</strong></label>
-                                    <div class="form-clt">
-                                        <input type="number" name="wallCount" id="wallCount" formControlName="wallCount" placeholder="Quantity of walls (optional)">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12">
-                                    <button type="button"  class="theme-btn padding-style">
-                                        Add wall <i class="fas fa-plus"></i>
-                                    </button>
-                                </div> 
                                 <h3 class="wow fadeInUp">Wallpaper roll measurements</h3>                            
                                 <div formArrayName="rolls">
                                     <div *ngFor="let roll of rolls; let i = index" [formGroupName]="i" class="flex-container">
@@ -159,50 +106,7 @@
                             </div>
                         </form>
 
-                        <!--  <form [formGroup]="calculatorForm" (ngSubmit)="onSubmit()">
-                            <div>
-                              <label for="height">Altura de la pared:</label>
-                              <input type="number" formControlName="height" id="height" placeholder="Altura">
-                            </div>
-                          
-                            <div>
-                              <label for="width">Ancho de la pared:</label>
-                              <input type="number" formControlName="width" id="width" placeholder="Ancho">
-                            </div>
-                          
-                            <div>
-                              <label for="wallCount">Cantidad de paredes:</label>
-                              <input type="number" formControlName="wallCount" id="wallCount" placeholder="Cantidad de paredes">
-                            </div>
-                          
-                            <div formArrayName="rolls">
-                              <div *ngFor="let roll of rolls; let i = index" [formGroupName]="i">
-                                <div>
-                                  <label for="rollWidth{{i}}">Ancho del rollo:</label>
-                                  <input type="number" formControlName="rollWidth" id="rollWidth{{i}}" placeholder="Ancho del rollo">
-                                </div>
-                          
-                                <div>
-                                  <label for="rollLength{{i}}">Largo del rollo:</label>
-                                  <input type="number" formControlName="rollLength" id="rollLength{{i}}" placeholder="Largo del rollo">
-                                </div>
-                              </div>
-                            </div>
-                          
-                            <div>
-                              <button type="button" (click)="addRoll()">Agregar otro rollo</button>
-                            </div>
-                          
-                            <div>
-                              <label for="wastePercentage">Desperdicio extra (%):</label>
-                              <input type="number" formControlName="wastePercentage" id="wastePercentage" placeholder="Desperdicio extra (%)">
-                            </div>
-                          
-                            <div>
-                              <button type="submit">Calcular</button>
-                            </div>
-                          </form> -->
-                          
+                     
                     </div>
                 </div>
             </div>
