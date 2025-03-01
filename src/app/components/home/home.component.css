@@ -1,14 +1,15 @@
-/* .bg-cover {
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  background-position: center;
-  height: 160%;}
-   */
-   @media (max-width: 575px) {
+.nice-select .current {
+  margin-right: 12px;
+  color: #fff !important;
+}
+.nice-select span {
+  color: #fff !important;
+}
+@media (max-width: 575px) {
     .hero-1 .hero-content {
         text-align: center;
         margin-top: 0;
+        margin-bottom: 15px;
         margin-bottom: 15px;
     }
     .hero-1 .theme-btn.padding-style {

@@ -254,26 +254,7 @@
     <div class="project-wrapper">
         <div class="swiper project-slider">
             <div class="swiper-wrapper">
-                <!-- project.component.html -->
-               <!--  <div class="swiper-slide">
-                    <div class="project-carousel-items">
-                        <div class="project-video">
-                            <video src="assets/casa/img/project/video.MOV" controls>
-                              
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="project-carousel-items">
-                        <div class="project-video">
-                            <video src="assets/casa/img/project/video1.MOV" controls>
-                              
-                            </video>
-                        </div>
-                    </div>
-                </div> -->
-
+             
                 <div class="swiper-slide">
                     <div class="project-carousel-items">
                         <div class="project-image">
@@ -806,11 +787,11 @@
                               <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                 <div class="form-clt">
                                   <select id="servicesType" name="servicesType" class="form-control" formControlName="servicesType" 
-                                    [ngClass]="{ 'is-invalid': submitted && f['servicesType'].errors }">
-                                    <option value="">Select Services</option>
-                                    <option value="Interior Painting">Interior Painting</option>
-                                    <option value="Wallpaper installation or repair">Wallpaper installation or repair</option>
-                                    <option value="Wallpaper removal">Wallpaper removal</option>
+                                    [ngClass]="{ 'is-invalid': submitted && f['servicesType'].errors }" style="color: #fff;">
+                                    <option value="" style="color: #fff;">Select Services</option>
+                                    <option value="Interior Painting" style="color: #fff;">Interior Painting</option>
+                                    <option value="Wallpaper installation or repair" style="color: #fff;">Wallpaper installation or repair</option>
+                                    <option value="Wallpaper removal" style="color: #fff;">Wallpaper removal</option>
                                   </select>
                                   <div *ngIf="submitted && f['servicesType'].errors" class="invalid-feedback">
                                     <div *ngIf="f['servicesType'].errors['required']">Required services Type.</div>

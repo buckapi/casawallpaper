@@ -40,7 +40,7 @@ export class HomeComponent implements  OnInit {
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
       this.showImage = !result.matches; // Oculta la imagen en dispositivos móviles
   });
-    this.ngFormRequest = this.formBuilder.group({
+   /*  this.ngFormRequest = this.formBuilder.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
@@ -49,8 +49,17 @@ export class HomeComponent implements  OnInit {
         projectType: ['', Validators.required],
         area: ['', Validators.required],
         message: ['', Validators.required],
-    /*       date: ['', Validators.required],
- */    });
+    }); */
+    this.ngFormRequest = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern('your-pattern-here')]],
+      zipcode: ['', Validators.required],
+      servicesType: ['', Validators.required],
+      projectType: ['', Validators.required],
+      area: ['', Validators.required],
+      message: ['', Validators.required]
+    });
   }
 
   
@@ -61,14 +70,7 @@ export class HomeComponent implements  OnInit {
 
   saveRequest() {
   this.submitted = true; 
-  /* if (this.ngFormRequest.invalid) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Please complete all required fields before submitting the request.'
-    });
-    return;
-  } */
+
 
   let data: any = this.ngFormRequest.value;
 
