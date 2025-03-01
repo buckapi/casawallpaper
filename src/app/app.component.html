@@ -61,23 +61,31 @@
                     </div>
                 </div>
   
-                <div class="mobile-menu fix mb-3">
+                <div class="">
                     <nav id="mobile-menu">
                         <ul>
-                            <li>
-                                <a (click)="virtualRouter.setRoute('home')">Home</a>
+                            <li class="active">
+                                <a (click)="virtualRouter.setRoute('home')" style="font-weight: 600;">Home</a>
                             </li>
                             <li>
-                                <a (click)="virtualRouter.setRoute('about')">About</a>
+                                <a (click)="virtualRouter.setRoute('about')" style="font-weight: 600;">About</a>
+                            </li>
+                            <li class="has-dropdown">
+                                <a (click)="isSubmenuVisible = !isSubmenuVisible" style="font-weight: 600;">
+                                    Services
+                                    <i class="fas fa-angle-down"></i>
+                                </a>
+                                <ul class="submenu" *ngIf="isSubmenuVisible">
+                                    <li style="font-weight: 600;"><a (click)="virtualRouter.setRoute('services1')">Interior Painting</a></li>
+                                    <li style="font-weight: 600;"><a (click)="virtualRouter.setRoute('services2')">Wallpaper installation or repair</a></li>
+                                    <li style="font-weight: 600;"><a (click)="virtualRouter.setRoute('services3')">Wallpaper removal</a></li>
+                                </ul>
                             </li>
                             <li>
-                                <a (click)="virtualRouter.setRoute('services')">Services</a>
+                                <a (click)="virtualRouter.setRoute('gallery')" style="font-weight: 600;">Gallery</a>
                             </li>
                             <li>
-                                <a (click)="virtualRouter.setRoute('gallery')">Gallery</a>
-                            </li>
-                            <li>
-                                <a (click)="virtualRouter.setRoute('contact')">Contact</a>
+                                <a (click)="virtualRouter.setRoute('contact')" style="font-weight: 600;">Contact</a>
                             </li>
                         </ul>
                     </nav>

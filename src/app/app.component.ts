@@ -58,6 +58,7 @@ export class AppComponent {
   deviceInfo: any = null
   phoneNumber: string = '9198855401';
   menuOpen: boolean = false;
+  isSubmenuVisible = false;
   constructor(
     private deviceService: DeviceDetectorService,
     public script: ScriptService,

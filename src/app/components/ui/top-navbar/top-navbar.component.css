@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 38px 0;
+    padding: 15px 0;
 }
 .header-1.header-2 .mega-menu-wrapper .header-main .main-menu ul li a {
     color: #212529;
@@ -28,7 +28,7 @@
       display: flex;
       align-items: center;
       justify-content: space-evenly;
-      padding: 15px 0;
+      padding: 15px 15px;
     }
     .phone-number {
         font-size: 0.8rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
