@@ -784,25 +784,26 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                              <div class="col-lg-6 wow " data-wow-delay=".5s">
                                 <div class="form-clt">
                                   <select id="servicesType" name="servicesType" class="form-control" formControlName="servicesType" 
-                                    [ngClass]="{ 'is-invalid': submitted && f['servicesType'].errors }" style="color: #fff;">
-                                    <option value="" style="color: #fff;">Select Services</option>
-                                    <option value="Interior Painting" style="color: #fff;">Interior Painting</option>
-                                    <option value="Wallpaper installation or repair" style="color: #fff;">Wallpaper installation or repair</option>
-                                    <option value="Wallpaper removal" style="color: #fff;">Wallpaper removal</option>
+                                    [ngClass]="{ 'is-invalid': submitted && f['servicesType'].errors }">
+                                    <option value="" disabled>Select Services</option>
+                                    <option value="Interior Painting">Interior Painting</option>
+                                    <option value="Wallpaper installation or repair">Wallpaper installation or repair</option>
+                                    <option value="Wallpaper removal">Wallpaper removal</option>
                                   </select>
                                   <div *ngIf="submitted && f['servicesType'].errors" class="invalid-feedback">
                                     <div *ngIf="f['servicesType'].errors['required']">Required services Type.</div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                          
+                              <div class="col-lg-6 wow " data-wow-delay=".5s">
                                 <div class="form-clt">
                                   <select id="projectType" name="projectType" class="form-control" formControlName="projectType" 
                                     [ngClass]="{ 'is-invalid': submitted && f['projectType'].errors }">
-                                    <option value="">Type of project</option>
+                                    <option value="" disabled>Type of project</option>
                                     <option value="installation">Installation</option>
                                     <option value="repair">Repair</option>
                                     <option value="installation and repair">Installation and repair</option>
@@ -812,11 +813,12 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
+                          
+                              <div class="col-lg-12 wow " data-wow-delay=".5s">
                                 <div class="form-clt">
-                                  <select  id="area" name="area" class="form-control" formControlName="area" 
+                                  <select id="area" name="area" class="form-control" formControlName="area" 
                                     [ngClass]="{ 'is-invalid': submitted && f['area'].errors }">
-                                    <option value="">Approximate square footage of project</option>
+                                    <option value="" disabled>Approximate square footage of project</option>
                                     <option value="Less than 500 sq ft">Less than 500 sq ft</option>
                                     <option value="500 - 1000 sq ft">500 - 1000 sq ft</option>
                                     <option value="More than 1000 sq ft">More than 1000 sq ft</option>
@@ -841,10 +843,7 @@
                                 </button>
                               </div>
                             </div>
-                          </form>
-                          
-                          
-                          
+                        </form>
                     </div>
                 </div>
                 <div class="col-xl-5 mt-5 mt-xl-0">

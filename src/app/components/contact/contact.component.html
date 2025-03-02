@@ -81,83 +81,102 @@
                             <span class="wow fadeInUp">Contact Us</span>
                             <h2 class="wow fadeInUp" data-wow-delay=".3s">Get In Touch</h2>
                         </div>
-                        <form action="" id="contact-form" method="POST" class="contact-form-items mt-4 mt-md-0">
+                        <form [formGroup]="ngFormRequest" (ngSubmit)="saveRequest()" class="contact-form-items mt-4 mt-md-0">
                             <div class="row g-4">
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="form-clt">
-                                        <input type="text" name="name" id="name" placeholder="Your Name">
-                                    </div>
+                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="form-clt">
+                                  <input type="text" placeholder="Your Name" id="name" name="name" formControlName="name"
+                                    [ngClass]="{ 'is-invalid': submitted && f['name'].errors }">
+                                  <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['name'].errors['required']">Required name.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <input type="text" name="email" id="email" placeholder="Your Email">
-                                    </div>
+                              </div>
+                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="form-clt">
+                                  <input type="text" name="email" id="email" placeholder="Your Email" formControlName="email"
+                                    [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                                  <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['email'].errors['required']">Required email.</div>
+                                    <div *ngIf="f['email'].errors['email']">Invalid email format.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <input type="text" name="number" id="number" placeholder="Phone Number">
-                                    </div>
+                              </div>
+                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="form-clt">
+                                  <input type="text" name="phone" id="phone" placeholder="Phone Number" formControlName="phone"
+                                    [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }">
+                                  <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['phone'].errors['required']">Required phone.</div>
+                                    <div *ngIf="f['phone'].errors['pattern']">Invalid phone number.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="form-clt">
-                                        <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code">
-                                    </div>
+                              </div>
+                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="form-clt">
+                                  <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" formControlName="zipcode"
+                                    [ngClass]="{ 'is-invalid': submitted && f['zipcode'].errors }">
+                                  <div *ngIf="submitted && f['zipcode'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['zipcode'].errors['required']">Required zip code.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <div class="nice-select" tabindex="0">
-                                            <span class="current">Select Services</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected focus">Interior Painting</li>
-                                                <li data-value="2" class="option">Wallpaper installation or repair</li>
-                                                <li data-value="3" class="option">Wallpaper removal</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                              </div>
+                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="form-clt">
+                                  <select id="servicesType" name="servicesType" class="form-control" formControlName="servicesType" 
+                                    [ngClass]="{ 'is-invalid': submitted && f['servicesType'].errors }">
+                                    <option value="" disabled>Select Services</option>
+                                    <option value="Interior Painting">Interior Painting</option>
+                                    <option value="Wallpaper installation or repair">Wallpaper installation or repair</option>
+                                    <option value="Wallpaper removal" style="color: #fff;">Wallpaper removal</option>
+                                  </select>
+                                  <div *ngIf="submitted && f['servicesType'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['servicesType'].errors['required']">Required services Type.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <div class="nice-select" tabindex="0">
-                                            <span class="current">Type of project</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected focus">Installation</li>
-                                                <li data-value="2" class="option">Repair</li>
-                                                <li data-value="3" class="option">Installation and repair</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                              </div>
+                              <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="form-clt">
+                                  <select id="projectType" name="projectType" class="form-control" formControlName="projectType" 
+                                    [ngClass]="{ 'is-invalid': submitted && f['projectType'].errors }">
+                                    <option value="">Type of project</option>
+                                    <option value="installation">Installation</option>
+                                    <option value="repair">Repair</option>
+                                    <option value="installation and repair">Installation and repair</option>
+                                  </select>
+                                  <div *ngIf="submitted && f['projectType'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['projectType'].errors['required']">Required type of project.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <div class="nice-select" tabindex="0">
-                                            <span class="current">Approximate square footage of project</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected focus">Less than 500 sq ft
-                                                </li>
-                                                <li data-value="2" class="option">500 - 1000 sq ft</li>
-                                                <li data-value="3" class="option">More than 1000 sq ft</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                              </div>
+                              <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="form-clt">
+                                  <select  id="area" name="area" class="form-control" formControlName="area" 
+                                    [ngClass]="{ 'is-invalid': submitted && f['area'].errors }">
+                                    <option value="">Approximate square footage of project</option>
+                                    <option value="Less than 500 sq ft">Less than 500 sq ft</option>
+                                    <option value="500 - 1000 sq ft">500 - 1000 sq ft</option>
+                                    <option value="More than 1000 sq ft">More than 1000 sq ft</option>
+                                  </select>
+                                  <div *ngIf="submitted && f['area'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['area'].errors['required']">Approximate square footage is required.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".9s">
-                                    <div class="form-clt">
-                                        <!--                                         <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/>
- --> <input type="text" class="form-control" />
-
-                                    </div>
+                              </div>
+                              <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="form-clt">
+                                  <textarea name="message" id="message" placeholder="Message here.." formControlName="message"
+                                    [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"></textarea>
+                                  <div *ngIf="submitted && f['message'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['message'].errors['required']">Message is required.</div>
+                                  </div>
                                 </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
-                                    <div class="form-clt">
-                                        <textarea name="message" id="message" placeholder="Message here.."></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-7 wow fadeInUp" data-wow-delay=".9s">
-                                    <button type="submit" class="theme-btn padding-style">
-                                        Book Now <i class="fas fa-long-arrow-right"></i>
-                                    </button>
-                                </div>
+                              </div>
+                              <div class="col-lg-7 wow fadeInUp" data-wow-delay=".3s">
+                                <button type="submit" id="submit-form" class="theme-btn padding-style" style="    left: 60px;">
+                                  Book Now <i class="fas fa-long-arrow-right"></i>
+                                </button>
+                              </div>
                             </div>
                         </form>
                     </div>

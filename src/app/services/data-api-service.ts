@@ -115,15 +115,15 @@ export class DataApiService {
 	});
 
 
-	saveDocument( document: DocumentInterface) {
+	/* saveDocument( document: DocumentInterface) {
 		const url_api =  'https://db.buckapi.com:8090/api/collections/vendricomDocuments/records';
 		return this.http.post<DocumentInterface>(url_api, document).pipe(
 		  map(data => data)
 		);
-	  }
+	  } */
 	 
 	  saveRequest( request: RequestInterface) {
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/casaRequest/records';
+		const url_api = this.yeoman.origin.restUrl + '/api/collections/CasaWallpaperRequest/records';
 		return this.http.post<RequestInterface>(url_api, request).pipe(
 		  map(data => data)
 		);
@@ -134,7 +134,7 @@ export class DataApiService {
 		return this.http.post(url, data);
 	  }
 
-	  saveCategory( category: CategoryInterface) {
+	  /* saveCategory( category: CategoryInterface) {
 		const url_api = 'https://db.buckapi.com:8090/api/collections/vendricomCategories/records';
 		return this.http.post<CategoryInterface>(url_api, category).pipe(
 		  map(data => data)
@@ -145,7 +145,7 @@ export class DataApiService {
 		return this.http.post<TemaInterface>(url_api, category).pipe(
 		  map(data => data)
 		);
-	  }
+	  } */
 	deletePart(id: string){
 		const token = this.AuthRESTService.getToken();
 		const url_api=	this.yeoman.origin.restUrl+`/api/products/${id}/?access_token$={token}`;

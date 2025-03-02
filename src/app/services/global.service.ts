@@ -17,14 +17,12 @@ import { Butler } from './butler.service';
 })
 export class GlobalService {
 
-/*   private apiUrl = 'http://localhost:8090/api/collections/images/records';
- */
   isInfoActive=false;
   private apirestUrl = 'https://db.camiwa.com:8092/api/';
   clientes: any[] = [];
   documents: any[] = [];
   configs: any[] = [];
-status:string="";
+  status:string="";
   info: any[] = [];
   categories: any[] = [];
   temas: any[] = [];
@@ -89,47 +87,7 @@ status:string="";
     this.isInfoActive = false;
   }
 
-  saveCategory() {
-    let category = { name: this.newCategory };
-
-    this.dataApiService.saveCategory(category).subscribe(
-      (response) => {
-        console.log("categoria guardada correctamente:", JSON.stringify(response));
-        // Agregar la categoria de la respuesta al array de categorias
-        this.categories.push(response);
-        this.categories = [...this.categories];
-
-        // console.log(JSON.stringify(this.yeoman.categorys))
-        // Limpiar los valores para futuros usos
-        this.newCategory = "";
-        // this.activeModal.close();
-      },
-      (error) => {
-        console.error("Error al guardar la categoria:", error);
-      }
-    );
-  }
-  saveTema() {
-    let tema = { name: this.newTema };
-
-    this.dataApiService.saveTema(tema).subscribe(
-      (response) => {
-        console.log("Tema guardado correctamente:", JSON.stringify(response));
-        // Agregar la marca de la respuesta al array de marcas
-        this.temas.push(response);
-        this.temas = [...this.temas];
-
-        // console.log(JSON.stringify(this.yeoman.brands))
-        // Limpiar los valores para futuros usos
-        this.newTema = "";
-        // this.activeModal.close();
-      },
-      (error) => {
-        console.error("Error al guardar el tema:", error);
-      }
-    );
-  }
-
+ 
   getClass(){
     return {
       'fmapp-wrap': !this.isInfoActive,
@@ -187,7 +145,7 @@ status:string="";
         const imageUrl = response.id;
         // console.log('Imagen subida correctamente:', response);
         let imageComplete =
-        "https://db.camiwa.com:8092/api/files/" +
+        "https://db.camiwa.com:8092/api/images/" +
         response.collectionId +
         "/" +
         imageUrl +

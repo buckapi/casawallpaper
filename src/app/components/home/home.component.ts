@@ -40,16 +40,7 @@ export class HomeComponent implements  OnInit {
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
       this.showImage = !result.matches; // Oculta la imagen en dispositivos móviles
   });
-   /*  this.ngFormRequest = this.formBuilder.group({
-        name: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
-        zipcode: ['', Validators.required],
-        servicesType: ['', Validators.required],
-        projectType: ['', Validators.required],
-        area: ['', Validators.required],
-        message: ['', Validators.required],
-    }); */
+   
     this.ngFormRequest = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -61,8 +52,22 @@ export class HomeComponent implements  OnInit {
       message: ['', Validators.required]
     });
   }
-
-  
+  ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
+  }
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+    this.ngFormRequest = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
+      zipcode: ['', Validators.required],
+      servicesType: ['', Validators.required],
+      projectType: ['', Validators.required],
+      area: ['', Validators.required],
+      message: ['', Validators.required],
+      });
+  }  
 
   get f(): { [key: string]: AbstractControl } {
     return this.ngFormRequest.controls;
@@ -70,13 +75,8 @@ export class HomeComponent implements  OnInit {
 
   saveRequest() {
   this.submitted = true; 
-
-
   let data: any = this.ngFormRequest.value;
-
-  // Debug: Mostrar datos del formulario en la consola
   console.log('Datos del formulario:', data);
-
   this.dataApiService.saveRequest(data).subscribe(
     (response) => {
       swal.fire({
@@ -89,11 +89,9 @@ export class HomeComponent implements  OnInit {
         this.yeoman.allrequest.push(response);
         this.yeoman.allrequest = [...this.yeoman.allrequest];
         this.isError = false;
-
         // Reiniciar el formulario
         this.ngFormRequest.reset();
         this.submitted = false;  // Resetear el estado de envío
-
         // Recargar la página
         window.location.reload();
       });
@@ -110,9 +108,8 @@ export class HomeComponent implements  OnInit {
       console.log('Error al guardar la solicitud:', error);
     }
   );
-  }
-
- 
+  } 
+  
   toggleMenu(event: MouseEvent) {
     this.menuOpen = !this.menuOpen;
     event.stopPropagation();
@@ -136,22 +133,7 @@ export class HomeComponent implements  OnInit {
     }
   }
 
-  ngAfterViewInit(): void {
-    window.scrollTo(0, 0);
-  }
-    ngOnInit(): void {
-      window.scrollTo(0, 0);
-      this.ngFormRequest = this.formBuilder.group({
-        name: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
-        zipcode: ['', Validators.required],
-        servicesType: ['', Validators.required],
-        projectType: ['', Validators.required],
-        area: ['', Validators.required],
-        message: ['', Validators.required],
-       });
-    }
+ 
   onIsError(): void {
     this.isError = true;
   }

@@ -5,6 +5,9 @@
 .nice-select span {
   color: #fff !important;
 }
+.nice-select {
+  background-color: #fff !important;
+}
 @media (max-width: 575px) {
     .hero-1 .hero-content {
         text-align: center;

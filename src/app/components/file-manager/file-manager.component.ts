@@ -125,7 +125,7 @@ docummentSelected: DocumentInterface = {
     
     this.docummentSelected=selected;
   }
-  submitForm() {
+ submitForm() {
     // Aquí puedes manejar los datos del formulario, por ejemplo, enviarlos a un servicio o imprimirlos en la consola.
     console.log(this.formData);
     // this.dataApi.saveDocument(this.formData).subscribe(){};
@@ -135,7 +135,7 @@ docummentSelected: DocumentInterface = {
     this.data.issue = this.formData.fechaEmision;
     this.data.serial = this.formData.serial;
     this.data.files = this._butler.uploaderImages;
-    this.dataApi.saveDocument(this.data).subscribe(
+    /* this.dataApi.saveDocument(this.data).subscribe(
       (response) => {
         this.global.documents.push(this.data);
         this.global.documents=[...this.global.documents];
@@ -151,22 +151,14 @@ docummentSelected: DocumentInterface = {
           entity: '',
           status: ''
         };  
-        // this.temas = [...this.temas];
+        
         console.log('Marca guardada correctamente:', response);
-        // Agregar la marca de la respuesta al array de marcas, si es necesario
-
-        // Limpiar los valores para futuros usos
-        // this.global.newBrand = '';
-        // this.yeoman.brands.push(response);
-        // this.yeoman.brands = [...this.yeoman.brands];
-        // Cerrar el modal
-        // this.activeModal.close();
+      
       },
       (error) => {
         console.error('Error al guardar la marca:', error);
       }
-    );
-    // Limpia el formulario después de enviarlo.
+    ); */
     this.formData = {};
   }
 }
