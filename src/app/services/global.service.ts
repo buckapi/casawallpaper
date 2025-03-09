@@ -37,7 +37,10 @@ export class GlobalService {
   docummentSelected={};
   newCategory:any;
   newTema:any;
+  gallery: any[] = [];
   clientDetail: { clrepresentante: any }[] = [];
+  imagesSelected: any[] = [];
+  
   constructor(
     private apollo: Apollo,
     public catalogo: Catalogo,
@@ -64,19 +67,7 @@ export class GlobalService {
   getGallery(): Observable<any> {
     return this.http.get<any>(this.apirestUrl + 'collections/casaGallery/records');
   }
-  getClientes(): Observable<any> {
-    return this.http.get<any>(this.apirestUrl + 'collections/vendricomClients/records');
-  }
-  getCategories(): Observable<any> {
-    return this.http.get<any>(this.apirestUrl + 'collections/vendricomCategories/records');
-  }
-  getTemas(): Observable<any> {
-    return this.http.get<any>(this.apirestUrl + 'collections/vendricomTemas/records');
-  }
-
-  getDocuments(): Observable<any> {
-    return this.http.get<any>(this.apirestUrl + 'collections/vendricomDocuments/records');
-  }
+  
  uploadDocument(){
   
  }

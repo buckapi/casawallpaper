@@ -16,7 +16,13 @@ export interface CardInterface {
 	imageUrl: string;
 	urlImage: string;
   }
-
+// gallery-item.model.ts
+export interface GalleryItem {
+	id: string;
+	name: string;
+	files: string[]; // Esto es un arreglo de URLs de imágenes
+  }
+  
 export interface PostInterface{
 	id?:number;
 }export interface DocumentInterface{
@@ -79,6 +85,8 @@ export interface TicketInterface {
 }
 export interface RequestInterface {
 }
+export interface ImageInterface {
+}
 export interface SerialInterface {
 	serialT:string,
 }
@@ -103,6 +111,7 @@ export class DataApiService {
 	cierre:any;
 	serial:any;
 	transactions:any;
+	images:any;
   	constructor(
 	  	// public butler:Butler, 
 		public yeoman: Yeoman,
@@ -216,7 +225,16 @@ export class DataApiService {
 		return this.http.get(url_api);
 	}
 
+	/* getAllImages() {
+		const url_api = this.yeoman.origin.restUrl+'/api/collections/casaGallery/records';
+		return this.http.get(url_api);
+	} */
+		getAllImages(): Observable<GalleryItem[]> {
+			const url_api = `${this.yeoman.origin.restUrl}/api/collections/casaGallery/records`;  // URL de tu API
+			return this.http.get<GalleryItem[]>(url_api);  // Tipamos la respuesta como un arreglo de GalleryItem
+		  }
 	
+
 	getAllCars(){
 		const url_api = this.yeoman.origin.restUrl+'/api/cars';
 		return this.http.get(url_api);

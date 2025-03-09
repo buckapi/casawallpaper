@@ -38,23 +38,17 @@
             <button class="filter-btn" onclick="filterItems('video')">Videos</button>
         </div>
         
-        <div class="row g-4 portfolio-items-wrapper">
+        <div class="row g-4 portfolio-items-wrapper" >
             <!-- Agrega una clase adicional para imágenes o videos -->
-       
-        <!--     <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 portfolio-item video">
+                
+            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6" *ngFor="let images of (realtimeImages.images$ | async); let i = index" >
                 <div class="portfolio-items">
-                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/video-thumbnail.jpg');"></div>
-                </div>
-            </div> -->
-          
-            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                <div class="portfolio-items">
-                    <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/01.jpg');">
-                        
+                    <div class="portfolio-image bg-cover" [style.background-image]="'url(' + images.files[0] + ')'">
+                      
                      </div>
                 </div>
             </div>
-            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+         <!--   <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
                 <div class="portfolio-items">
                     <div class="portfolio-image bg-cover" style="background-image: url('assets/casa/img/project/02.jpg');">
                         
@@ -102,7 +96,7 @@
                         
                      </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Repite los elementos con la clase adecuada -->
         </div>
     </div>
